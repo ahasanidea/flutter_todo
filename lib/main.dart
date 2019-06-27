@@ -1,29 +1,34 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+main()=>runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'This is material app',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(       
-        primarySwatch: Colors.blue,
+      theme: ThemeData(
+        brightness: Brightness.light,
+        primaryColor: Colors.green,
       ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Flutter App'),
-        ),
-        body: Container(
-          child: Center(
-            child: Text('Hello World'),
-          ),
-        ),
-        
-      ),
+      home: MyHome(),
     );
   }
 }
 
+class MyHome extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Title of app'),        
+      ),
+      body: Container(
+        child: Center(
+          child: Text('Hello World!'),
+        ),
+      ),
+    );
+  }
+}
