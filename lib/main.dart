@@ -1,34 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_todo/model/todo.dart';
+import 'package:flutter_todo/utils/dbhelper.dart';
+import 'package:flutter_todo/ui/todolist.dart';
 
-main()=>runApp(MyApp());
+main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'This is material app',
+      title: 'Todos',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        brightness: Brightness.light,
-        primaryColor: Colors.green,
+      theme: ThemeData(primarySwatch: Colors.green),
+      home: MyHomePage(
+        title: 'Todos',
       ),
-      home: MyHome(),
     );
   }
 }
 
-class MyHome extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
+  MyHomePage({Key key, this.title}) : super(key: key);
+  final String title;
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Title of app'),        
+        title: Text(widget.title),
       ),
-      body: Container(
-        child: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
+      body: TodoList(),
     );
   }
 }
